@@ -235,7 +235,7 @@ try:
     if args.optimizer == 'sgd':
         optimizer = torch.optim.SGD(params, lr=args.lr, weight_decay=args.wdecay)
     if args.optimizer == 'adam':
-        optimizer = torch.optim.Adam(params, lr=args.lr, weight_decay=args.wdecay)
+        optimizer = torch.optim.Adam(params, lr=args.lr, weight_decay=args.wdecay, betas=(0, 0.999), eps=1e-09)
     for epoch in range(1, args.epochs+1):
         epoch_start_time = time.time()
         train()
